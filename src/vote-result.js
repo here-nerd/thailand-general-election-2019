@@ -1,4 +1,3 @@
-// https://www.ect.go.th/ect_th/download/article/article_20190215221333.pdf
 // https://onedrive.live.com/view.aspx?resid=406535DF3742CCA3!69368&ithint=file%2cxlsx&authkey=!AI9_udED-i2k9Fo
 
 export const voteResult = [
