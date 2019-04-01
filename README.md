@@ -3,4 +3,9 @@
 ### The data is based on [this](https://onedrive.live.com/view.aspx?resid=406535DF3742CCA3!69368&ithint=file%2cxlsx&authkey=!AI9_udED-i2k9Fo).
 ### The calculator is [Cleverse/thailand-party-list-calculator](https://github.com/Cleverse/thailand-party-list-calculator).
 
+## Disclaimer
+
+This is not the official software. We do not hold any responsibility for any
+mistake in any law interpretation or logic implementation.
+
 ![Alt text](./images/Chart.png)
