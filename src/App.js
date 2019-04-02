@@ -1,48 +1,29 @@
 import React, { Component } from 'react'
-import StackedColumnChart from './components/StackedColumnChart'
-import { options } from './chart-options'
 import { voteResult } from './vote-result'
 import { calculatePartyList } from 'thailand-party-list-calculator'
+import NivoStackedBar from './components/NivoStackedBar';
+import RechartsStackedBar from './components/RechartsStackedBar';
 
 class App extends Component {
   render() {
     // options.data = voteResult
     const parties = calculatePartyList(voteResult)
-    const bar1 = {
-      type: "stackedColumn",
-      name: "สส เขต",
-      showInLegend: true,
-      dataPoints: parties.reduce((accu, party) => {
-        if ((party.electedMemberCount + party.partyListMemberCount) > 0)
+
+    const nivoData = parties.reduce((accu, party) => {
+      if ((party.electedMemberCount + party.partyListMemberCount) > 0)
         accu.push({
             label: party.id,
-            y: party.electedMemberCount
+            "สส เขต": party.electedMemberCount,
+            "สส ปาร์ตี้": party.partyListMemberCount
         })
-        return accu
-      }, [])
-    }
-
-    const bar2 = {
-      type: "stackedColumn",
-      name: "สส ปาร์ตี้",
-      showInLegend: true,
-      indexLabel: "#total",
-      indexLabelPlacement: "outside",
-      dataPoints: parties.reduce((accu, party) => {
-        if ((party.electedMemberCount + party.partyListMemberCount) > 0)
-        accu.push({
-            label: party.id,
-            y: party.partyListMemberCount
-        })
-        return accu
-      }, [])
-    }
-
-    options.data = [bar1, bar2]
-
-    console.log(parties)
+      return accu
+    }, [])
+   
     return (
-		<StackedColumnChart options={options}/>
+      <div style={{height: 400}}>
+        <NivoStackedBar data={nivoData}></NivoStackedBar>
+        <RechartsStackedBar data={nivoData}></RechartsStackedBar>
+      </div>
     )
   }
 }
