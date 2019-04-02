@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { voteResult } from './vote-result'
 import { calculatePartyList } from 'thailand-party-list-calculator'
-import NivoStackedBar from './components/NivoStackedBar';
 import RechartsStackedBar from './components/RechartsStackedBar';
 
 class App extends Component {
@@ -20,8 +19,7 @@ class App extends Component {
     }, [])
    
     return (
-      <div style={{height: 400}}>
-        <NivoStackedBar data={nivoData}></NivoStackedBar>
+      <div>
         <RechartsStackedBar data={nivoData}></RechartsStackedBar>
       </div>
     )
